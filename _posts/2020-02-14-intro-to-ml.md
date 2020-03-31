@@ -155,7 +155,6 @@ Categorical variables are just variables that can be only fall within in a singl
 
 *Classification* is used to find the rules that explain how to **separate the different data points** (usually) with a line. The line drawn between classes is known as the **decision boundary**. The entire area that is chosen to define a class is known as the **decision surface**. The *decision surface* defines that if a data point falls within its boundaries, it will be assigned a certain *class* or *label*.
 
-.
 
 ## Unsupervised Learning
 In *unsupervised learning*, **only input data** is provided in the examples. There are **no labelled example outputs** to aim for. But it may be surprising to know that it is still possible to find many interesting and complex patterns hidden within data without any labels.
@@ -181,12 +180,15 @@ If your aim is growing into a successful coder, you need to know a lot of things
 Why Starting With **Python** ?
 
 My opinion — *Python* is a perfect choice for a beginner to make your focus on in order to jump into the field of machine learning and data science. It is a minimalistic and intuitive language with a full-featured library line (also called *frameworks*) which significantly reduces the time required to get your first results.
+
 You can also, by the way, consider the **R language**.
+
 But...
+
 ![BlackPanther](https://sumanmichael.github.io/images/1meme2.png)
 
 >"We don't do that there" --- Black Panther, Movie (2018)
->
+
 We will try to code **Machine Learning in Python** in the next post.
 
 Meanwhile, have a grasp of **Python, Numpy, Pandas, Matplotlib.**
