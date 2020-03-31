@@ -140,7 +140,9 @@ The two main categories of machine learning techniques are **supervised learning
 
 *Regression* is the algorithm which learns the dependency/relation (i.e., a
  $function: y=f(x)$) between each known $x$(input) and $y$(output), such that later we can use it to predict $y$(output) for an unknown sample of $x$(input). If the function is graphically represented as a straight line (i.e., in $2D, y=mx+c$), then it is **Linear Regression**.
+
 ***
+
 But what if your outcome variable y is “**categorical**”? That’s where **classification** comes in!
 
 Wait, but what is a *categorical* variable?
