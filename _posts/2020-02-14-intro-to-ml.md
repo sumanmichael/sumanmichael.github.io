@@ -1,5 +1,5 @@
 ---
-title: 'Introduction to Machine Learning | Suman Michael'
+title: 'Introduction to Machine Learning'
 date: 2020-02-14
 permalink: /posts/2020/02/introduction-to-machine-learning/
 tags:
