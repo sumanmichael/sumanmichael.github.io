@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- <link rel="icon" href="../../../../favicon.ico"> -->
+
+    <title>Wallink</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/pagination.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://pagination.js.org/dist/2.1.5/pagination.js"></script>
+    <style type="text/css">
+    	.card {
+    		padding: 10%;
+    	}
+		.footer {
+		  position: fixed;
+		  left: 0;
+		  bottom: 0;
+		  width: 100%;
+		  font-size: 12px;
+		  color: gray;
+		  text-align: center;
+		}
+    </style>
+
+  </head>
+
+  <body>
+  
+
+<div class="container" style="">
+	<div class="m-5">
+		<h1 style="">Wallink</h1>
+		The post wall of telegram bot
+		<hr style="">
+	</div>
+</div>
+<div class="container" style="">
+	<div class="m-5">
+		<div class="row" style="" id="data-container">
+			
+		</div>
+	</div>
+</div>
+
+<div class="container" style="">
+ 	<div class="m-5">
+		<nav aria-label="Page navigation example" style="">	  
+			<div id="pagination-bar"></div>
+		</nav>
+	</div>	
+</div>
+
+<div class="footer">
+  <a>SumanMichael &copy;2020</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	function extractHostname(url) {
+    var hostname;
+    if (url.indexOf("//") > -1) {
+        hostname = url.split('/')[2];
+    }
+    else {
+        hostname = url.split('/')[0];
+    }
+    hostname = hostname.split(':')[0];
+    hostname = hostname.split('?')[0];
+    return hostname;
+}
+
+	function template(data) {
+    var html = '';
+    $.each(data, function(index, item){
+        var expression = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi;
+		var regex = new RegExp(expression);
+		try{
+			var url = item.message.text.match(regex)[0];
+		}catch{
+			var url="#";
+		}
+        html+= '<div class="col-sm-4"><div class="card" style=""><div class="card-body"><h4 class="card-title">'+item.message.from.first_name+' </h4><p class="card-text">'+item.message.text+'</p><a href="http://'+url+'" class="btn btn-primary">Take me there..!</a></div></div></div>'; 
+    });
+    return html;
+}
+
+function log(content) {
+  window.console && console.log(content);
+}
+
+$(function(){
+  var container = $('#pagination-bar');
+
+  var token='1159783289:AAEeKCFU2RMfXEViUzajrfumNyx3zoi5K78';
+  container.pagination({
+      dataSource: function(done) {
+								    $.ajax({
+								        type: 'GET',
+								        url: 'https://api.telegram.org/bot'+token+'/getUpdates',
+								        success: function(response) {
+								            done(response.result);
+								        }
+								    });
+								 },
+      pageSize: 3,
+      pageNumber:9999999999999,
+      // direction:-1,
+      autoHidePrevious: true,
+      autoHideNext: true,
+      callback: function(data, pagination) {
+        var html = template(data);
+        $('#data-container').html(html);
+      }
+  });
+});
+
+</script>
+</body>
+</html>
